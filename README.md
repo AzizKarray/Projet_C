@@ -1,5 +1,8 @@
 LRU Cache Implementation
-**Functional Explanation
+
+-------------------------------------------------------------------------------------------------------------
+
+Functional Explanation
 This project implements an LRU (Least Recently Used) Cache, a data structure that provides efficient retrieval and updates for key-value pairs. The cache stores a fixed number of key-value pairs, and once it reaches its capacity, the least recently used item is evicted to make room for new entries. This ensures that the cache always contains the most recently accessed data, and evicts older, less frequently accessed items.
 
 Features:
