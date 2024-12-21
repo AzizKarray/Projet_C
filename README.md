@@ -5,6 +5,40 @@ LRU Cache Implementation
 Functional Explanation
 This project implements an LRU (Least Recently Used) Cache, a data structure that provides efficient retrieval and updates for key-value pairs. The cache stores a fixed number of key-value pairs, and once it reaches its capacity, the least recently used item is evicted to make room for new entries. This ensures that the cache always contains the most recently accessed data, and evicts older, less frequently accessed items.
 
+Summerizing what each method does : 
+1. createNode(int key, int value):
+Creates a new node with the specified key and value.
+Initializes its prev and next pointers to NULL.
+
+2. lRUCacheCreate(int capacity):
+Initializes an LRUCache instance with the given capacity.
+-Sets up a doubly linked list with dummy head and tail nodes to track the least and most recently used items.
+-Allocates memory for a hash table to map keys to their respective nodes in the list.
+
+3. moveToFront(LRUCache* cache, Node* node):
+Moves a given node to the front of the doubly linked list, making it the most recently used item.
+
+4. removeTail(LRUCache* cache):
+Removes the least recently used (LRU) node from the doubly linked list, located just before the tail node.
+
+5. lRUCacheGet(LRUCache* cache, int key):
+Retrieves the value associated with the given key from the cache.
+
+- If the key exists, moves the corresponding node to the front of the list and returns its value.
+- If the key does not exist, returns -1.
+
+6. lRUCachePut(LRUCache* cache, int key, int value):
+Adds or updates a key-value pair in the cache.
+-If the key already exists, updates the value and moves the node to the front of the list.
+-If the key does not exist, creates a new node and inserts it at the front.
+-If the cache exceeds its capacity, removes the LRU node (from the tail) and adjusts the size.
+
+7. lRUCacheFree(LRUCache* cache):
+Frees all allocated memory for the cache, including:
+-All nodes in the doubly linked list.
+-The hash table.
+-The cache itself.
+
 Features:
 Put Operation: Adds a key-value pair to the cache. If the key already exists, it updates its value.
 Get Operation: Retrieves the value for a given key from the cache. If the key is not found, it returns -1.
