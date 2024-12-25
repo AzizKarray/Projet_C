@@ -8,22 +8,37 @@
 // Function to run a single test case
 void runTest(char* operations[], int args[][2], int opCount, char* expected) {
     LRUCache* cache = NULL;
+    char actual[200] = ""; // Buffer to store the actual output
+    int actualIndex = 0;   // Index for writing to the actual output buffer
+
     printf("Running Test:\n");
 
     for (int i = 0; i < opCount; i++) {
         if (strcmp(operations[i], "LRUCache") == 0) {
             cache = lRUCacheCreate(args[i][0]);
-            printf("null ");
+            // Add "null " to the actual output since LRUCache creates and returns no value
+            actualIndex += sprintf(actual + actualIndex, "null ");
         } else if (strcmp(operations[i], "put") == 0) {
             lRUCachePut(cache, args[i][0], args[i][1]);
-            printf("null ");
+            // Add "null " to the actual output since put returns no value
+            actualIndex += sprintf(actual + actualIndex, "null ");
         } else if (strcmp(operations[i], "get") == 0) {
             int result = lRUCacheGet(cache, args[i][0]);
-            printf("%d ", result);
+            // Add the result to the actual output
+            actualIndex += sprintf(actual + actualIndex, "%d ", result);
         }
     }
 
-    printf("\nExpected Output: %s\n", expected);
+    printf("Actual Output: %s\n", actual);
+    printf("Expected Output: %s\n", expected);
+
+    // Compare actual and expected output
+    if (strcmp(actual, expected) == 0) {
+        printf("Test Passed!\n");
+    } else {
+        printf("Test Failed!\n");
+    }
+
     // Free the cache
     lRUCacheFree(cache);
 }
