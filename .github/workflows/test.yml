@@ -18,7 +18,7 @@ jobs:
       run: sudo apt-get install build-essential
 
     - name: Compile Code
-      run: gcc -o test_lru test_lru.c
+      run: gcc -o Testing Testing.c Code.c -Wall -Wextra
 
     - name: Run Tests
-      run: ./test_lru
+      run: ./Testing
