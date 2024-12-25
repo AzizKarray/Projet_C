@@ -1,0 +1,24 @@
+name: LRU Cache Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up C Compiler
+      run: sudo apt-get install build-essential
+
+    - name: Compile Code
+      run: gcc -o test_lru test_lru.c
+
+    - name: Run Tests
+      run: ./test_lru
