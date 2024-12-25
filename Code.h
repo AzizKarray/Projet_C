@@ -92,32 +92,4 @@ void lRUCacheFree(LRUCache* cache) {
     }
     free(cache->hashTable);
     free(cache);
-}
-
-int main() {
-    LRUCache* cache = lRUCacheCreate(2);
-    printf("null\n");  // For the LRUCache initialization step
-    
-    lRUCachePut(cache, 1, 1);  // put(1, 1)
-    printf("null\n");  // For the put method
-    
-    lRUCachePut(cache, 2, 2);  // put(2, 2)
-    printf("null\n");  // For the put method
-    
-    printf("%d\n", lRUCacheGet(cache, 1));  // get(1)
-    
-    lRUCachePut(cache, 3, 3);  // put(3, 3)
-    printf("null\n");  // For the put method
-    
-    printf("%d\n", lRUCacheGet(cache, 2));  // get(2)
-    
-    lRUCachePut(cache, 4, 4);  // put(4, 4)
-    printf("null\n");  // For the put method
-    
-    printf("%d\n", lRUCacheGet(cache, 1));  // get(1)
-    printf("%d\n", lRUCacheGet(cache, 3));  // get(3)
-    printf("%d\n", lRUCacheGet(cache, 4));  // get(4)
-    
-    lRUCacheFree(cache);  // Free the cache
-    return 0;
-}
+} 

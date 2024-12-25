@@ -1,9 +1,7 @@
-["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
-[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
-Expected Output:
-null null null 1 null -1 null -1 3 4
-
-["LRUCache", "put", "put", "get", "get", "put", "get"]
-[[1], [1, 10], [2, 20], [1], [2], [3, 30], [1]]
-Expected Output:
-null null null 10 20 null 10
+5
+LRUCache 2 0
+put 1 1
+put 2 2
+get 1 0
+put 3 3
+null null null 1 null
